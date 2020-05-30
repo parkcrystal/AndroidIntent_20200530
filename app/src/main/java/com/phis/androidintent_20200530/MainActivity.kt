@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
+import java.net.URI
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,6 +43,18 @@ class MainActivity : AppCompatActivity() {
             val myUri = Uri.parse("smsto:${inputPhoneNum}")
             val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
             myIntent.putExtra("sms_body", "[광고] 이 앱을 공유헤주세요.")
+            startActivity(myIntent)
+        }
+
+        naverLinkBtn.setOnClickListener {
+            val myUri = Uri.parse("https://naver.com")
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+        }
+
+        kakaoStoreLinkBtn.setOnClickListener {
+            val myUri = Uri.parse("market://details?id=com.kakao.talk")
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
             startActivity(myIntent)
         }
 
